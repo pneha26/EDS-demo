@@ -19,6 +19,17 @@
         background-color: #ededed;
         height: 100%;
       }
+
+      :root {
+          --sk-block-table-background-color: #03A;
+          --sk-block-table-foreground-color: #fff;
+
+          --sk-section-metadata-table-background-color: #f30;
+          --sk-section-metadata-table-foreground-color: #000;
+
+          --sk-metadata-table-background-color: #000;
+          --sk-metadata-table-foreground-color: #fff;
+      }
       
       helix-sidekick { display: none }
     </style>
@@ -33,7 +44,13 @@
     <script>
       const library = document.createElement('sidekick-library')
       library.config = {
-        base: '/tools/sidekick/library.json'
+        base: '/tools/sidekick/library.json',
+        plugins: {
+          blocks: {
+              encodeImages: true,
+              contentEditable: false,
+          }
+      }
       }
 
       document.body.prepend(library)
